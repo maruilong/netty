@@ -1,2 +1,6 @@
 # Project exclude paths
 /target/
+/.idea
+netty.iml
+/lib
+
