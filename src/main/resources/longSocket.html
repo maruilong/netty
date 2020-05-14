@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    var webSocket = new WebSocket("ws://localhost:9000/hello")
+    //相当于channel
+    webSocket.onmessage = function (ev) {
+        let elementById = document.getElementById("responseTest");
+        elementById.value(ev.data);
+    }
+
+    function submit(){
+
+    }
+
+</script>
+<body>
+<form onsubmit="return false">
+    <textarea name="message" style="height: 300px; width: 300px"></textarea>
+    <input type="button" value="发送消息" onclick="this.form.message.value"/>
+    <textarea id="responseTest" style="width: 300px;width: 300px"></textarea>
+</form>
+</body>
+<script>
+
+    var ws = new WebSocket("ws://localhost:9000")
+    ws.onopen({
+        ws.
+    });
+</script>
+</html>
