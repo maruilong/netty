@@ -1,5 +1,6 @@
 package com.itmasir.netty.simple;
 
+import com.itmasir.codec.StudentPOJO;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -7,6 +8,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
+import io.netty.handler.codec.protobuf.ProtobufEncoder;
 
 /**
  * netty 客户端
@@ -29,7 +32,10 @@ public class NettyClient {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
                             //加入自己的处理器
+                            ch.pipeline().addLast(new ProtobufEncoder());
                             ch.pipeline().addLast(new NettyClientHandler());
+                            //加入Protobuf的编码器
+
                         }
                     });  //消息处理器
 

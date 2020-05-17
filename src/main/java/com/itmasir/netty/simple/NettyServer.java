@@ -1,10 +1,13 @@
 package com.itmasir.netty.simple;
 
+import com.itmasir.codec.StudentPOJO;
+import com.itmasir.codec2.MyDataInfo;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
 
 public class NettyServer {
 
@@ -29,7 +32,9 @@ public class NettyServer {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ChannelPipeline pipeline = ch.pipeline();
+                            pipeline.addLast(new ProtobufDecoder(MyDataInfo.MyMessage.getDefaultInstance()));
                             pipeline.addLast(new NettyServerHandler());//给管道的最后增加一个处理器
+                            //加入解码器 指定对哪种对象进行接吗
                         }
                     }); //给workerGroup的EventLoop设置管道设置处理器
 
