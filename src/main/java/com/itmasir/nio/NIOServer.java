@@ -41,7 +41,7 @@ public class NIOServer {
             Iterator<SelectionKey> keyIterator = selectionKeys.iterator();
 
             while (keyIterator.hasNext()) {
-                //获取到SelectionKey
+                 //获取到SelectionKey
                 SelectionKey selectionKey = keyIterator.next();
                 //如果是客户端连接事件
                 if (selectionKey.isAcceptable()) {
