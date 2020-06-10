@@ -7,7 +7,6 @@ public class MyServerHandler extends SimpleChannelInboundHandler<Long> {
 	@Override
 	protected void channelRead0(ChannelHandlerContext channelHandlerContext, Long aLong) throws Exception {
 		System.out.println("读取到从客户端的数据:" + aLong);
-
 	}
 
 

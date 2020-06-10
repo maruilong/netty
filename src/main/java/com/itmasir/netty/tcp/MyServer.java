@@ -1,4 +1,4 @@
-package com.itmasir.netty.inandout;
+package com.itmasir.netty.tcp;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
