@@ -5,6 +5,7 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
+import java.math.BigDecimal;
 import java.nio.charset.Charset;
 
 public class MyClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
@@ -26,6 +27,10 @@ public class MyClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 		byteBuf.readBytes(bytes);
 		System.out.println(new String(bytes, Charset.forName("UTF-8")));
 		System.out.println(++count);
+	}
+
+	public static void main(String[] args) {
+		System.out.println(new BigDecimal(0.5).compareTo(new BigDecimal(0.5)));
 	}
 
 }
